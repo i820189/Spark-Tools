@@ -176,7 +176,7 @@ Spark siempre esperará una **Acción** para proceder a ejecutar todas las trans
 
 Depende al estilo de clasificaciones de transformaciones que hagamos, spark será menos o mas "paralelo". El primer grupo que trabaja en paralelo cada uno trabaja y luego se junta sin problemas. En cambio un cluster no paralelo no podría tener varios executors.
 
-#### **Narrow Transformation**
+### **Narrow Transformation**
 Operaciones donde la data es tomada de una sola partición, no depende de otras particiones para ejecutarse.
 Son el resultado de operaciones donde **la data es tomada de una sola partición,** es decir no depende de otras particiones para ejecutarse. Podemos encontrar funciones como `map` y `filter`.
 
@@ -259,7 +259,7 @@ rddUnionf.take(8)
 Out[54]: [1, 'ene', 2016, 3, 'ene', 2017, 7, 'ago']
 ```
 
-#### **Wide Transformation** (se pierde performance, se pierde mas el paralelismo)
+### **Wide Transformation** (se pierde performance, se pierde mas el paralelismo)
 Son el resultado de operaciones donde la data es tomada de direfentes particiones, **es decir depende de data de otras particiones para ejecutarse**. Podemos encontrar funciones como **groupByKey** y **reduceByKey**. Las tuplas con la misma llave deben terminar en la misma partifición, esto significa que Spark debe ejecutar un RDD shuffle lo cual transfiere/mueve data a través del cluster resultando un nuevo stage con un nuevo grupo de particiones.
 
 **Join:** Unimos dos key/value RDDs
@@ -325,6 +325,7 @@ print(result.collect())
 > [(1, 'jan', 2016), (16, 'feb', 2014), (3, 'nov', 2014)]
 ```
 **groupByKey:** Retorna los elementos de un RDD agrupados por la key. Se recomienda por optimización usar reduceByKey en los casos que sea posible. (https://databricks.gitbooks.io/databricks-spark-knowledge-base/content/best_practices/prefer_reducebykey_over_groupbykey.html)
+
 ![](https://databricks.gitbooks.io/databricks-spark-knowledge-base/content/images/group_by.png)
 
 ```python
