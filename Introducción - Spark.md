@@ -20,7 +20,7 @@ No es necesario estar generando un output y volviendo a leer en otro lado, etc .
 #### **LIBRERIAS**
 Busca proveer una API unificada para tareas comunes de análisis. Las librerías permiten agregar a Spark nuevas funcionalidades. Por ejemplo librerías para SQL y data estructurada SparkSQL, Machine Learning (MLlib y SparkML), stream processing (Structured Streaming) y análisis de gráfos con GraphX. Además existen muchas más librerías que puedes ver en https://spark-packages.org/ ¿Cuántos paquetes tiene disponible hoy Spark? ¿Cuál es la categoría más popular?
 
-![Menu](./Spark-Tools/assets/Screenshot_3.png)
+![Menu](./assets/Screenshot_3.png)
 
 
 ## Brieft Apache Spark History
