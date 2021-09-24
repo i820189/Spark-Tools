@@ -29,12 +29,21 @@ Apache Spark empezo en el 2009 en UC Berkeley con un paper(ttps://www.usenix.org
 Apache Spark 1.0 salio en el 2014, Apache Spark 2.0 en 2016 y Apache 3.0 en 2020.
 
 ## Spark's Architecture
-Un cluster o grupo de computadoras, agrupa los recursos como RAM y CPUs permitiendonos una mayor capacidad. Para que podamos sacarle el mayor provecho las maquinas agrupadas no son sufiente, necesitan un framework para coordinar el trabajo. Spark hace eso, administra y coordina la ejecucion de las tareas sobre la data para todo el cluster
+Un cluster o grupo de computadoras, agrupa los recursos como RAM y CPUs permitiendonos una mayor capacidad. Para que podamos sacarle el mayor provecho las maquinas agrupadas no son sufiente, necesitan un framework para coordinar el trabajo. **Spark hace eso, administra y coordina la ejecucion de las tareas sobre la data para todo el cluster.**
 
-Las maquinas que Spark usa para ejecutar las tareas son administradas por un cluster manager como: Spark's standalone cluster manager, YARN, Mesos o Kubernetes. Nosotros luego enviamos un Spark Application a cualquiera de esos cluster managers, los cuales nos asignaran recursos para nuestra aplicacion y asi puedan hacer su trabajo.
+Las maquinas que Spark usa para ejecutar **las tareas son ADMINISTRADA por un Cluster Manager** como: 
+- Spark's standalone cluster manager, (si hoy descargo apache spark y lo instalo a mi maquina local de 16gb,el cluster manager consume 1 GB y el resto lo administra, si lanzo un proceso de spark va a tocar la puerta del cluster manager asigname esta cantidad,termina de ejecutar y se devuelve)
+- **YARN**, (como existe diferentes tecnologias en las empresas,YARN Otro Negociador de Recursos, Yarn no solo le va a tocar la puerta a un job de Spark, sino a Hive, Impala a cualquier tecnologia que está integrada a YARN ) (Lider actualmente)
+- Mesos (parecido a YARN, no fue tan popular)
+- o **Kubernetes**. (A partir de la v3.0 Spark, el que toma el protagonismo es Kubernetes, es un administrador de containers, es complejo de como se integra Spark + Kubernetes, puede a futuro que en databricks ya se integre a futuro)
+Nosotros luego enviamos un Spark Application a cualquiera de esos cluster managers, los cuales nos asignaran recursos para nuestra aplicacion y asi puedan hacer su trabajo.
 
 ## Spark Applications
-Un Spark Application consiste de un driver process y un conjunto de executor processes
+Nosotros como DE, DS...  vamos a enviarle un **"Spark Application"** al **"Cluster Manager"** para su ejecución. Cada vez que trabajamos con Spark, estamos creando un Spark application.
+
+Un Spark Application consiste de un driver process y un conjunto de executor processes.
+
+2:51:08 !!!!! me quede aquí en el video
 
 El proceso driver es responsable de tres actividades:
 - Mantener la infomacion de acerca del Spark Application
